@@ -309,6 +309,25 @@ angular.module('binary').config([
   }
 ]);
 /**
+ * @name contractSummary
+ * @author Morteza Tavanarad
+ * @contributors []
+ * @since 12/28/2015
+ * @copyright Binary Ltd
+ */
+angular.module('binary').filter('customCurrency', [
+  '$filter',
+  function ($filter) {
+    return function (amount, currencySymbol) {
+      var currency = $filter('currency');
+      if (amount < 0) {
+        return currency(amount, currencySymbol).replace('(', '-').replace(')', '');
+      }
+      return currency(amount, currencySymbol);
+    };
+  }
+]);
+/**
  * @name AccountController
  * @author Massih Hazrati
  * @contributors []
@@ -799,25 +818,6 @@ angular.module('binary').controller('TradeController', [
         'READ',
         'TRADE'
       ]);
-    };
-  }
-]);
-/**
- * @name contractSummary
- * @author Morteza Tavanarad
- * @contributors []
- * @since 12/28/2015
- * @copyright Binary Ltd
- */
-angular.module('binary').filter('customCurrency', [
-  '$filter',
-  function ($filter) {
-    return function (amount, currencySymbol) {
-      var currency = $filter('currency');
-      if (amount < 0) {
-        return currency(amount, currencySymbol).replace('(', '-').replace(')', '');
-      }
-      return currency(amount, currencySymbol);
     };
   }
 ]);
@@ -3389,29 +3389,6 @@ angular.module('binary').directive('signin', [
   }
 ]);
 /**
- * @name languageList Directive
- * @author Morteza Tavanarad
- * @contributors []
- * @since 04/10/2016
- * @copyright Binary Ltd
- */
-angular.module('binary').directive('languageList', [
-  'languageService',
-  function (languageService) {
-    return {
-      restrict: 'E',
-      scope: {},
-      templateUrl: 'templates/components/language/language-list.template.html',
-      link: function (scope, element, attrs, ngModel) {
-        scope.language = languageService.read();
-        scope.changeLanguage = function () {
-          languageService.update(scope.language);
-        };
-      }
-    };
-  }
-]);
-/**
  * @name appUpdate
  * @author Morteza Tavanarad
  * @contributors []
@@ -3506,6 +3483,29 @@ angular.module('binary').directive('appUpdate', [
             });
           }
         });
+      }
+    };
+  }
+]);
+/**
+ * @name languageList Directive
+ * @author Morteza Tavanarad
+ * @contributors []
+ * @since 04/10/2016
+ * @copyright Binary Ltd
+ */
+angular.module('binary').directive('languageList', [
+  'languageService',
+  function (languageService) {
+    return {
+      restrict: 'E',
+      scope: {},
+      templateUrl: 'templates/components/language/language-list.template.html',
+      link: function (scope, element, attrs, ngModel) {
+        scope.language = languageService.read();
+        scope.changeLanguage = function () {
+          languageService.update(scope.language);
+        };
       }
     };
   }
