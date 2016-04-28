@@ -6,6 +6,7 @@
         "delete": "Hapus", 
         "my_accounts": "Mengelola Akun", 
         "new_token": "Tambahkan token baru", 
+        "not_allowed_to_trade": "Anda tidak memiliki izin untuk bertrading!", 
         "remove_all": "Hapus Semua Akun & Keluar", 
         "set_as_default": "Pasang sebagai setelan"
     }, 
@@ -14,7 +15,7 @@
         "error": "Error!", 
         "field_between": "Harus antara 0.70 dan 100000.", 
         "must_number": "Harus berupa angka.", 
-        "no_tick": "Pilih pasar dasar lain, Pasar dasar yang Anda pilih tidak menyediakan pilihan tick.", 
+        "no_tick": "Pilih pasar lain, pasar yang Anda pilih tidak menyediakan pilihan tik.", 
         "no_underlying": "Tidak tersedia dasar untuk pasar ini. Silahkan coba pasar lain.", 
         "not_auth": "Maaf, kami tidak dapat mengotentikasi Anda.", 
         "not_unique": "Anda telah menambahkan akun ini.", 
@@ -34,24 +35,26 @@
     }, 
     "help": {
         "back": "Kembali", 
-        "copy_token": "dan buat token. Kemudian copy dan pastekan pada kotak diatas.", 
+        "copy_token": "dan buat token. Kemudian masukkan pada kotak dihalaman pertama tadi.", 
         "email_cs": "Ada pertanyaan? Email customer support di ", 
         "generate_api": "Untuk mengakses aplikasi pihak ketiga, seperti mobile app, Anda diperlukan untuk membuat Token API.", 
-        "need_help": "Perlu Bantuan?", 
+        "need_help": "Memerlukan Bantuan?", 
         "page": "halaman ini", 
-        "visit": "Silahkan kunjungi"
+        "visit": "Pastikan Anda sudah login kedalam akun Anda kemudian kunjungi"
     }, 
     "options": {
         "account": "Akun", 
-        "digit_differs": "Digit Differs", 
+        "digit_differs": "Differs", 
+        "digit_even": "Even", 
         "digit_match": "Digit Match", 
+        "digit_odd": "Odd", 
+        "digit_over": "Over", 
+        "digit_under": "Under", 
         "down": "Down", 
-        "even": "Even", 
         "forex": "Forex", 
         "last_digit_prediction": "Analisa Digit Terakhir", 
         "lets_trade": "Ayo trade!", 
-        "number_of_ticks": "Jumlah Tick", 
-        "odd": "Odd", 
+        "number_of_ticks": "Jumlah Tik", 
         "payout": "Hasil", 
         "payout_type": "Jenis Hasil", 
         "random": "Random", 
@@ -61,21 +64,25 @@
         "stake": "Modal", 
         "trade_type": "Jenis Kontrak", 
         "underlying": "Dasar", 
-        "up": "Up"
+        "up": "Up", 
+        "volidx": "Indeks Volatilitas"
     }, 
     "signin": {
-        "add_account": "Tambah Akun", 
-        "get_token": "Cara mendapat Token?", 
+        "add_account": "Gunakan Akun", 
+        "get_token": "Bagaimanakah cara memperoleh Token?", 
         "language": "Bahasa", 
         "need_help": "Perlu Bantuan?", 
-        "paste_token": "Paste token Anda disini"
+        "next": "Lanjut", 
+        "paste_token": "Masukkan token Anda disini", 
+        "signin_with_binary_com": "Mendaftar di Binary.com", 
+        "use_token": "Atau mendaftar dengan token"
     }, 
     "trade": {
         "account_balance": "Saldo Akun", 
         "back": "Kembali", 
         "balance": "Saldo", 
         "buy": "BELI", 
-        "buy_again": "Buy Again", 
+        "buy_again": "Beli Lagi", 
         "buy_price": "Harga Beli", 
         "final_price": "Harga Akhir", 
         "lose": "Kontrak ini rugi", 
@@ -92,11 +99,11 @@
         "win": "Kontrak ini untung"
     }, 
     "update": {
-        "check_for_update": "Checking for update.", 
+        "check_for_update": "Memeriksa pembaruan.", 
         "downloading": "Downloading ...", 
-        "error": "An error occured while checking for updates", 
-        "installed": "The update was installed successfully.", 
-        "installing": "Installing update", 
-        "up_to_date": "The application is up to date."
+        "error": "Terjadi error saat mengecek pembaruan", 
+        "installed": "Pembaruan berhasil diinstal.", 
+        "installing": "Menginstal pembaruan", 
+        "up_to_date": "Aplikasi ini sudah diperbarui."
     }
 }
