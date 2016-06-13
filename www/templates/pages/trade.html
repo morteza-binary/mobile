@@ -10,12 +10,13 @@
 	<ion-content has-bouncing="false">
 		<form name="purchaseForm" novalidate>
 			<long-code></long-code>
-			<trade-contract-chart></trade-contract-chart>
+			<iq-chart></iq-chart>
 			<payout ng-if="getTradeMode()"></payout>
 			<contract-summary ng-if="!getTradeMode()"></contract-summary>
 			<div class="row center">
 				<div class="col col-75">
-					<purchase ng-if="getTradeMode()" ng-disabled="getWaitForProposal() || !hasTradePermission()"></purchase>
+                    <!-- <purchase ng-if="getTradeMode()" ng-disabled="getWaitForProposal() || !hasTradePermission()"></purchase> -->
+                    <purchase ng-if="getTradeMode()" ng-disabled="true"></purchase>
 				</div>
 			</div>
 		</form>
