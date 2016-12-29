@@ -10,5 +10,17 @@
   'use strict';
 
   angular
-    .module('binary.share.components.updator')
-});
+    .module('binary.share.components.updater.controllers')
+    .controller('UpdaterController', Updater);
+
+  Updater.$inject = ['$ionicPlatform'];
+
+  function Updater($ionicPlatform){
+
+    $ionicPlatform.ready(()=>{
+      if(window.codePush){
+        window.codePush.sync();
+      }
+    });
+  }
+})();

@@ -1,0 +1,18 @@
+.update-page{
+  .message {
+    margin-top: 10%;
+  }
+
+  .features{
+    margin-top: 10%;
+    padding-left: 5px;
+    .list{
+      padding-left: 10px;
+      span{
+        .icon{
+          font-size: 10px !important;
+        }
+      }
+    }
+  }
+}

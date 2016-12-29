@@ -98,6 +98,13 @@ angular
           templateUrl: 'js/pages/profile/profile.template.html',
           controller: 'ProfileController',
           controllerAs: 'vm'
+        })
+        .state('update', {
+          url: '/update',
+          cache: false,
+          templateUrl: 'js/pages/update/update.template.html',
+          controller: 'UpdateController',
+          controllerAs: 'vm'
         });
 
 
