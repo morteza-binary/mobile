@@ -603,6 +603,25 @@
 'use strict';
 
 /**
+ * @name payout module
+ * @author Morteza Tavnarad
+ * @contributors []
+ * @since 08/27/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+    'use strict';
+
+    angular.module('binary.pages.trade.components.payout', ['binary.pages.trade.components.payout.controllers', 'binary.pages.trade.components.payout.directives']);
+
+    angular.module('binary.pages.trade.components.payout.controllers', []);
+
+    angular.module('binary.pages.trade.components.payout.directives', []);
+})();
+'use strict';
+
+/**
  * @name options module
  * @author Morteza Tavnarad
  * @contributors []
@@ -620,25 +639,6 @@
   angular.module('binary.pages.trade.components.options.directives', []);
 
   angular.module('binary.pages.trade.components.options.services', []);
-})();
-'use strict';
-
-/**
- * @name payout module
- * @author Morteza Tavnarad
- * @contributors []
- * @since 08/27/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-    'use strict';
-
-    angular.module('binary.pages.trade.components.payout', ['binary.pages.trade.components.payout.controllers', 'binary.pages.trade.components.payout.directives']);
-
-    angular.module('binary.pages.trade.components.payout.controllers', []);
-
-    angular.module('binary.pages.trade.components.payout.directives', []);
 })();
 'use strict';
 
@@ -9107,6 +9107,101 @@ angular.module('binary').factory('websocketService', ["$rootScope", "localStorag
 'use strict';
 
 /**
+ * @name payout controller
+ * @author Morteza Tavnarad
+ * @contributors []
+ * @since 08/27/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+    'use strict';
+
+    angular.module('binary.pages.trade.components.payout.controllers').controller('PayoutController', Payout);
+
+    Payout.$inject = ['$scope', 'proposalService'];
+
+    function Payout($scope, proposalService) {
+        var vm = this;
+        vm.amount = vm.proposal.amount;
+
+        $scope.$watch(function () {
+            return vm.proposal.amount;
+        }, function (newVal, oldVal) {
+            if (newVal != vm.amount) {
+                vm.amount = newVal;
+            }
+        });
+
+        vm.changePayoutType = function () {
+            if (vm.proposal.basis === "payout") {
+                vm.proposal.basis = "stake";
+            } else {
+                vm.proposal.basis = "payout";
+            }
+            proposalService.setPropertyValue('basis', vm.proposal.basis);
+        };
+
+        vm.changeAmount = function () {
+            if (_.isEmpty(vm.amount) || vm.amount === 'NaN' || Number(vm.amount) == 0) {
+                vm.proposal.amount = 0;
+            } else {
+                vm.proposal.amount = vm.amount;
+            }
+            proposalService.setPropertyValue('amount', vm.proposal.amount);
+        };
+
+        vm.add = function () {
+            vm.amount = Number(vm.amount) + 1 <= 10000 ? Number(vm.amount) + 1 : 100000;
+        };
+
+        vm.subtract = function () {
+            vm.amount = Number(vm.amount) - 1 >= 1 ? Number(vm.amount) - 1 : 1;
+        };
+
+        vm.stopLongPress = function () {
+            vm.proposal.amount = vm.amount;
+            proposalService.setPropertyValue('amount', vm.proposal.amount);
+        };
+
+        function init() {}
+
+        init();
+    }
+})();
+'use strict';
+
+/**
+ * @name payout directive
+ * @author Morteza Tavnarad
+ * @contributors []
+ * @since 08/27/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+    'use strict';
+
+    angular.module('binary.pages.trade.components.payout.directives').directive('bgPayout', Payout);
+
+    function Payout() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'js/pages/trade/components/payout/payout.template.html',
+            controller: 'PayoutController',
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {
+                proposal: '='
+            }
+        };
+
+        return directive;
+    }
+})();
+'use strict';
+
+/**
  * @name barrier controller
  * @author Morteza Tavnarad
  * @contributors []
@@ -9899,101 +9994,6 @@ angular.module('binary').factory('websocketService', ["$rootScope", "localStorag
             scope: {
                 market: '=',
                 select: '&'
-            }
-        };
-
-        return directive;
-    }
-})();
-'use strict';
-
-/**
- * @name payout controller
- * @author Morteza Tavnarad
- * @contributors []
- * @since 08/27/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-    'use strict';
-
-    angular.module('binary.pages.trade.components.payout.controllers').controller('PayoutController', Payout);
-
-    Payout.$inject = ['$scope', 'proposalService'];
-
-    function Payout($scope, proposalService) {
-        var vm = this;
-        vm.amount = vm.proposal.amount;
-
-        $scope.$watch(function () {
-            return vm.proposal.amount;
-        }, function (newVal, oldVal) {
-            if (newVal != vm.amount) {
-                vm.amount = newVal;
-            }
-        });
-
-        vm.changePayoutType = function () {
-            if (vm.proposal.basis === "payout") {
-                vm.proposal.basis = "stake";
-            } else {
-                vm.proposal.basis = "payout";
-            }
-            proposalService.setPropertyValue('basis', vm.proposal.basis);
-        };
-
-        vm.changeAmount = function () {
-            if (_.isEmpty(vm.amount) || vm.amount === 'NaN' || Number(vm.amount) == 0) {
-                vm.proposal.amount = 0;
-            } else {
-                vm.proposal.amount = vm.amount;
-            }
-            proposalService.setPropertyValue('amount', vm.proposal.amount);
-        };
-
-        vm.add = function () {
-            vm.amount = Number(vm.amount) + 1 <= 10000 ? Number(vm.amount) + 1 : 100000;
-        };
-
-        vm.subtract = function () {
-            vm.amount = Number(vm.amount) - 1 >= 1 ? Number(vm.amount) - 1 : 1;
-        };
-
-        vm.stopLongPress = function () {
-            vm.proposal.amount = vm.amount;
-            proposalService.setPropertyValue('amount', vm.proposal.amount);
-        };
-
-        function init() {}
-
-        init();
-    }
-})();
-'use strict';
-
-/**
- * @name payout directive
- * @author Morteza Tavnarad
- * @contributors []
- * @since 08/27/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-    'use strict';
-
-    angular.module('binary.pages.trade.components.payout.directives').directive('bgPayout', Payout);
-
-    function Payout() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/pages/trade/components/payout/payout.template.html',
-            controller: 'PayoutController',
-            controllerAs: 'vm',
-            bindToController: true,
-            scope: {
-                proposal: '='
             }
         };
 
