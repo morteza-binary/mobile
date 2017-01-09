@@ -112,23 +112,6 @@
 'use strict';
 
 /**
- * @name settings module
- * @author Morteza Tavnarad
- * @contributors []
- * @since 11/11/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-  'use strict';
-
-  angular.module('binary.pages.settings', ['binary.pages.settings.controllers']);
-
-  angular.module('binary.pages.settings.controllers', []);
-})();
-'use strict';
-
-/**
  * @name self-exclusion module
  * @author Morteza Tavnarad
  * @contributors []
@@ -142,6 +125,23 @@
   angular.module('binary.pages.self-exclusion', ['binary.pages.self-exclusion.controllers']);
 
   angular.module('binary.pages.self-exclusion.controllers', []);
+})();
+'use strict';
+
+/**
+ * @name settings module
+ * @author Morteza Tavnarad
+ * @contributors []
+ * @since 11/11/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+  'use strict';
+
+  angular.module('binary.pages.settings', ['binary.pages.settings.controllers']);
+
+  angular.module('binary.pages.settings.controllers', []);
 })();
 'use strict';
 
@@ -1816,68 +1816,6 @@ angular.module('binary').config(['$translateProvider', function ($translateProvi
 'use strict';
 
 /**
- * @name settings controller
- * @author Morteza Tavnarad
- * @contributors []
- * @since 11/11/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-  'use strict';
-
-  angular.module('binary.pages.settings.controllers').controller('SettingsController', Settings);
-
-  Settings.$inject = ['appStateService'];
-
-  function Settings(appStateService) {
-    var vm = this;
-
-    vm.settings = [
-    /*{
-      name: "settings.security-and-limits",
-      submenus: [
-        {
-          name: "settings.self-exclusion",
-          url: "self-exclusion",
-          scope: "admin",
-          forRealAccount: true
-        }
-      ]
-    },*/
-    {
-      name: "profile.personal_details",
-      url: "profile",
-      scope: "read",
-      forRealAccount: false
-    }, {
-      name: "settings.self-exclusion",
-      url: "self-exclusion",
-      scope: "admin",
-      forRealAccount: true
-    }, {
-      name: "menu.language",
-      url: "language",
-      scope: "read",
-      forRealAccount: false
-    }];
-
-    vm.checkScope = function (scope) {
-      // since users aren't able to sign-in by token scopes don't have meaning any more
-      return true;
-    };
-
-    vm.checkAccount = function (forRealAccount) {
-      if (forRealAccount) {
-        return !appStateService.virtuality;
-      }
-      return true;
-    };
-  }
-})();
-'use strict';
-
-/**
  * @name self-exclusion module
  * @author Morteza Tavnarad
  * @contributors []
@@ -1955,6 +1893,68 @@ angular.module('binary').config(['$translateProvider', function ($translateProvi
     function init() {
       getSelfExclusion();
     }
+  }
+})();
+'use strict';
+
+/**
+ * @name settings controller
+ * @author Morteza Tavnarad
+ * @contributors []
+ * @since 11/11/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+  'use strict';
+
+  angular.module('binary.pages.settings.controllers').controller('SettingsController', Settings);
+
+  Settings.$inject = ['appStateService'];
+
+  function Settings(appStateService) {
+    var vm = this;
+
+    vm.settings = [
+    /*{
+      name: "settings.security-and-limits",
+      submenus: [
+        {
+          name: "settings.self-exclusion",
+          url: "self-exclusion",
+          scope: "admin",
+          forRealAccount: true
+        }
+      ]
+    },*/
+    {
+      name: "profile.personal_details",
+      url: "profile",
+      scope: "read",
+      forRealAccount: false
+    }, {
+      name: "settings.self-exclusion",
+      url: "self-exclusion",
+      scope: "admin",
+      forRealAccount: true
+    }, {
+      name: "menu.language",
+      url: "language",
+      scope: "read",
+      forRealAccount: false
+    }];
+
+    vm.checkScope = function (scope) {
+      // since users aren't able to sign-in by token scopes don't have meaning any more
+      return true;
+    };
+
+    vm.checkAccount = function (forRealAccount) {
+      if (forRealAccount) {
+        return !appStateService.virtuality;
+      }
+      return true;
+    };
   }
 })();
 'use strict';
@@ -8002,35 +8002,6 @@ angular.module('binary').factory('websocketService', ["$rootScope", "localStorag
 'use strict';
 
 /**
- * @name side-menu directive
- * @author Morteza Tavnarad
- * @contributors []
- * @since 08/08/2016
- * @copyright Binary Ltd
- * Application Side Menu
- */
-
-(function () {
-  'use strict';
-
-  angular.module('binary.share.components').directive('bgSideMenu', SideMenu);
-
-  function SideMenu() {
-    var directive = {
-      link: link,
-      templateUrl: 'js/share/components/side-menu/side-menu.template.html',
-      retrict: 'A',
-      scope: {}
-    };
-
-    function link() {}
-
-    return directive;
-  }
-})();
-'use strict';
-
-/**
  * @name bgRegexValidate directive
  * @author Morteza Tavnarad
  * @contributors []
@@ -8077,6 +8048,35 @@ angular.module('binary').factory('websocketService', ["$rootScope", "localStorag
         return;
       });
     }
+  }
+})();
+'use strict';
+
+/**
+ * @name side-menu directive
+ * @author Morteza Tavnarad
+ * @contributors []
+ * @since 08/08/2016
+ * @copyright Binary Ltd
+ * Application Side Menu
+ */
+
+(function () {
+  'use strict';
+
+  angular.module('binary.share.components').directive('bgSideMenu', SideMenu);
+
+  function SideMenu() {
+    var directive = {
+      link: link,
+      templateUrl: 'js/share/components/side-menu/side-menu.template.html',
+      retrict: 'A',
+      scope: {}
+    };
+
+    function link() {}
+
+    return directive;
   }
 })();
 'use strict';
