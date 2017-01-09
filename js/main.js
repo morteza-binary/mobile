@@ -1731,11 +1731,13 @@ angular.module('binary').config(['$translateProvider', function ($translateProvi
 
         vm.goToTopButtonCondition = function () {
             $scope.$applyAsync(function () {
-                if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
-                    vm.goToTopButton = true;
-                } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
-                    vm.goToTopButton = false;
-                }
+                $timeout(function () {
+                    if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
+                        vm.goToTopButton = true;
+                    } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
+                        vm.goToTopButton = false;
+                    }
+                }, 500);
             });
         };
 
@@ -2478,11 +2480,13 @@ angular.module('binary').config(['$translateProvider', function ($translateProvi
 
         vm.goToTopButtonCondition = function () {
             $scope.$applyAsync(function () {
-                if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
-                    vm.goToTopButton = true;
-                } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
-                    vm.goToTopButton = false;
-                }
+                $timeout(function () {
+                    if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
+                        vm.goToTopButton = true;
+                    } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
+                        vm.goToTopButton = false;
+                    }
+                }, 500);
             });
         };
 
@@ -2826,11 +2830,17 @@ angular.module('binary').config(['$translateProvider', function ($translateProvi
             window.addEventListener('native.keyboardhide', keyboardHideHandler);
 
             function keyboardShowHandler(e) {
-                document.getElementById('trade-container').className = "";
+                var tradeContainer = document.getElementById('trade-container');
+                if (tradeContainer !== undefined && tradeContainer !== null) {
+                    tradeContainer.className = "";
+                }
             }
 
             function keyboardHideHandler(e) {
-                document.getElementById('trade-container').className = "flexed";
+                var tradeContainer = document.getElementById('trade-container');
+                if (tradeContainer !== undefined && tradeContainer !== null) {
+                    tradeContainer.className = "flexed";
+                }
             }
         });
     }
