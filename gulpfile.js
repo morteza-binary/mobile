@@ -182,7 +182,7 @@ gulp.task('clean', function(done){
 });
 
 gulp.task('add-cname', function(done){
-  sh.exec('echo "ticktrade.binary.com" >> dist/CNAME');
+  sh.exec('echo "ticktrade.binary.com" > dist/CNAME');
   return done();
 });
 
