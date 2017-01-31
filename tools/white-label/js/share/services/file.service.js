@@ -17,7 +17,7 @@
   function FileService(){
     var fs = require('fs');
 
-    const COLOR_FILE_PATH = '../../scss/core/_colors.scss';
+    const COLOR_FILE_PATH = '../../scss/core/_variables.scss';
     const APP_CONFIG_PATH = '../../www/js/configs/app.config.js';
 
     var factory = {};
