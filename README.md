@@ -66,7 +66,7 @@ npm install or npm update (may need sudo)
 gulp deploy
 ```
 
-##How to use code-push to push new version
+## How to use code-push to push new version
 
 ```shell
 1. Install code-push
@@ -75,3 +75,9 @@ gulp deploy
 
   `$gulp code-push --app <registered appName in code-push> --deployment <deploymentName> --platform <[android, ios]>`
 ```
+
+## How to use white-label tool
+
+1. Install electron globally `npm install -g electron`
+2. Change your current directory to `tools/white-label`
+3. Run `electron .`
