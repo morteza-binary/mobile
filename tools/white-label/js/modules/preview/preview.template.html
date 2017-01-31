@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="column column-20">
+      <div class="list">
+        <div class="item item-divider center">
+          Layouts
+        </div>
+        <a class="item button button-full button-stable" href="#" ng-click="$ctrl.changeView('signin')"> Signin </a>
+        <a class="item button button-full button-stable" href="#" ng-click="$ctrl.changeView('home')"> Home </a>
+        <a class="item button button-full button-stable" href="#" ng-click="$ctrl.changeView('trade')"> Trade </a>
+        <div class="item item-divider center">
+          Configs
+        </div>
+        <a class="item button button-full button-stable" href="#" ng-click="$ctrl.changeView('config')"> Connections </a>
+      </div>
+    </div>
+    <div class="column column-30">
+      <bg-trade ng-if="$ctrl.layout == 'trade'" on-click="$ctrl.click(config)"></bg-trade>
+      <bg-main ng-if="$ctrl.layout == 'home'" on-click="$ctrl.click(config)"></bg-main>
+      <bg-signin ng-if="$ctrl.layout == 'signin'" on-click="$ctrl.click(config)"></bg-signin>
+      <bg-config ng-if="$ctrl.layout == 'config'" on-click="$ctrl.click(config)"></bg-config>
+    </div>
+    <div class="column column-40">
+      <bg-preview-property  data="$ctrl.config"></bg-preview-property>
+    </div>
+    <div class="column column-10"></div>
+  </div>
+</div>

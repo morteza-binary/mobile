@@ -1,0 +1,49 @@
+<div class="sign-in" ng-click="$ctrl.click()">
+  <div class="signin-content " has-bouncing="false">
+    <ion-header-bar align-title="center" class="bar bar-header bar-positive">
+      <button class="button icon-left button-clear ion-android-arrow-back ng-hide" ng-class="{'ion-ios-arrow-back' : vm.ios}" ng-click="vm.changeSigninView(true)" ng-show="vm.showTokenForm || vm.showSignin || vm.showSignup || vm.showvirtualws" style=""></button>
+      <h1 class="title" style="left: 34px; right: 34px;"></h1>
+    </ion-header-bar>
+    <div class="row center">
+      <div class="col col-75 branding">
+    <img src="{{$ctrl.config.properties.logo.value}}" class="logo" alt="Binary Logo">
+    <img src="{{$ctrl.config.properties.slogan.value}}" class="slogan" alt="Binary.com">
+      </div>
+    </div>
+
+    <div class="list">
+      <label class="item item-input item-select">
+        <i class="icon placeholder-icon icon-small ion-android-globe" ng-class="{'ion-ios-world' : vm.ios}"></i>
+
+        <select class="language ng-pristine ng-untouched ng-valid ng-not-empty" tabindex="2" >
+          <option label="English" value="string:en" selected="selected">English</option>
+          <option label="Bahasa Indonesia" value="string:id">Bahasa Indonesia</option>
+          <option label="русский язык" value="string:ru">русский язык</option>
+          <option label="繁體中文" value="string:zh_tw">繁體中文</option>
+          <option label="简体中文" value="string:zh_cn">简体中文</option>
+          <option label="Deutsch" value="string:de">Deutsch</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="row center">
+      <div class="col col-75">
+        <button class="button button-block button-possitive btn-signin ng-binding"
+                type="button"
+                style="background-color:{{$ctrl.config.properties.buttonColor.value}}"
+                >
+          Next
+        </button>
+      </div>
+    </div>
+
+    <div class="row responsive-sm">
+      <div class="col center">
+        <bg-app-version class="appVersion"><div class="ng-binding">
+            Version 2.0.2
+          </div>
+        </bg-app-version>
+      </div>
+    </div>
+  </div>
+</div>

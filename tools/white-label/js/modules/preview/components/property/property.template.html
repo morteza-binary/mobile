@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="bar bar-header bar-light">
+    {{ $ctrl.data.name || "Properties"}}
+  </div>
+  <div class="row">
+    <div class="column">
+      <bg-field ng-repeat="f in $ctrl.data.properties"
+                type="f.type"
+                label="f.name"
+                ng-model="f.value">
+      </bg-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column center">
+      <button class="button button-full button-stable"
+              ng-click="$ctrl.saveProperties()"
+              ng-disabled="$ctrl.disableSaveButton">Save</button>
+    </div>
+  </div>
+</div>

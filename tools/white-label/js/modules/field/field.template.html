@@ -1,0 +1,20 @@
+<div class="list" ng-if="$ctrl.type == 'color'">
+  <label class="item item-input">
+    <span class="input-label"> {{$ctrl.label}} </span>
+    <input type="color" ng-model="$ctrl.ngModel">
+  </label>
+</div>
+
+<div class="list" ng-if="$ctrl.type == 'img'">
+  <label class="item item-input">
+    <span class="input-label"> {{ $ctrl.label }} </span>
+    <input type="file" ng-model="$ctrl.ngModel" bg-file/>
+  </label>
+</div>
+
+<div class="list" ng-if="$ctrl.type == 'text'">
+  <label class="item item-input">
+    <span class="input-label"> {{ $ctrl.label }} </span>
+    <input type="text" ng-model="$ctrl.ngModel"/>
+  </label>
+</div>

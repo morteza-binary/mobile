@@ -1,0 +1,44 @@
+<bg-preview-header on-click="$ctrl.click(config)"></bg-preview-header>
+<div class="trade">
+  <div id="trade-container">
+    <bg-balance>
+      <div class="balance">
+        <div class="row">
+          <div class="col center ng-binding">
+            $8,458.60
+          </div>
+          <div class="col center ng-binding"> VRTC1321319 </div>
+        </div>
+      </div>
+    </bg-balance>
+    <bg-options style="margin-top: 0px !important;">
+      <div class="options">
+        <div class="row options-row">
+          <div class="col center">
+            <button class="button button-clear ng-binding" ng-click="vm.setSection(1, vm.SECTIONS.MARKETS)">Volatility Indices
+              <i class="ion-arrow-down-b"></i></button>
+          </div>
+          <div class="col center">
+            <button class="button button-clear ng-binding" ng-click="vm.setSection(1, vm.SECTIONS.UNDERLYINGS)"> Bear Market Index  <i class="ion-arrow-down-b"></i></button>
+          </div>
+        </div>
+        <div class="row options-row">
+          <div class="col center">
+            <button class="button button-clear ng-binding" ng-click="vm.setSection(2, vm.SECTIONS.TRADETYPES)"> Higher/Lower
+              <i class="ion-arrow-down-b"></i></button>
+          </div>
+          <div class="col center">
+            <button class="button button-clear ng-binding" ng-click="vm.setSection(2, vm.SECTIONS.TICKS)"> 5 Ticks
+              <i class="ion-arrow-down-b"></i></button>
+          </div>
+          <!-- ngIf: vm.options.digit != null -->
+        </div>
+      </div>
+    </bg-options>
+    <bg-chart style="min-height: 0px;"></bg-chart>
+    <bg-barrier></bg-barrier>
+    <bg-payout></bg-payout>
+    <bg-purchase on-click="$ctrl.click(config)"></bg-purchase>
+  </div>
+</div>
+

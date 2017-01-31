@@ -59,7 +59,13 @@ angular
 
                 appStateService.isLoggedin = false;
 
-                dataStream = new WebSocket(config.wsUrl + '?app_id=' + config.app_id + '&l=' + language);
+                var wsUrl = config.wsUrl + '?app_id=' + config.app_id + '&l=' + language;
+
+                if(config.brand){
+                  wsUrl += '&brand=' + config.brand;
+                }
+
+                dataStream = new WebSocket(wsUrl);
 
                 dataStream.onopen = function() {
 

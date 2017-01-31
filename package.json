@@ -1,7 +1,7 @@
 {
-  "name": "binary-ticktrade",
+  "name": "binary-ticktrade-white-label",
   "version": "2.0.0",
-  "description": "Binary.com Tick Trade",
+  "description": "Binary.com Tick Trade white label",
   "repository": {
     "type": "git",
     "url": "git@github.com:binary-com/mobile.git"

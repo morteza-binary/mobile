@@ -1,0 +1,21 @@
+.button{
+  height: 0;
+}
+
+.trade #trade-container bg-options .options .row .col .button, .trade #trade-container bg-options .options .row .col a{
+  font-size: 0.6rem !important;
+}
+
+.main.home{
+  position: absolute;
+  width: 30%;
+}
+
+.button.button-stable {
+  border: 0.1rem solid black !important;
+}
+
+.button.button-stable:hover {
+  border: 0.1rem solid blacki !important;
+  color: black !important;
+}

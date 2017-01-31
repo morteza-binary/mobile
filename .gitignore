@@ -26,3 +26,4 @@ CNAME
 .npmignore
 tmp
 tools/whitelabel/statics/lib
+tools/white-label/lib
