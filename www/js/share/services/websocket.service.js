@@ -144,6 +144,7 @@ angular
               appStateService.isLoggedin = false;
               sessionStorage.removeItem('start');
               sessionStorage.removeItem('_interval');
+              sessionStorage.removeItem('realityCheckStart');
               localStorage.removeItem('termsConditionsVersion');
               appStateService.profitTableRefresh = true;
               appStateService.statementRefresh = true;
@@ -152,6 +153,13 @@ angular
               appStateService.hasMLT = false;
               sessionStorage.removeItem('countryParams');
               websocketService.closeConnection();
+              appStateService.passwordChanged = false;
+              appStateService.hasToAcceptTandC = false;
+              appStateService.hasToFillFinancialAssessment = false;
+              appStateService.redirectFromFinancialAssessment = false;
+              appStateService.limitsChange = false;
+
+              appStateService.realityCheckLogin = false;
               $state.go('signin');
             };
 
@@ -404,9 +412,52 @@ angular
                   tnc_approval: 1
                 }
                 sendMessage(data);
-              }
-            };
+              },
+              changePassword: function(_oldPassword, _newPassword){
+                var data = {
+                  "change_password": "1",
+                  "old_password": _oldPassword,
+                  "new_password": _newPassword
+                }
+                sendMessage(data);
+              },
+              getFinancialAssessment: function(){
+                var data = {
+                  "get_financial_assessment": 1
+                }
+                sendMessage(data);
+              },
+              setFinancialAssessment: function(params){
+                var data = {
+                  "set_financial_assessment": 1
+                }
 
+                for( var key in params){
+                  if(params.hasOwnProperty(key)){
+                    data[key] = params[key];
+                  }
+                }
+                sendMessage(data);
+            },
+            tradingTimes: function(_date) {
+                var data = {
+                  "trading_times": _date
+                }
+                sendMessage(data);
+              },
+            getAccountStatus: function(){
+              var data = {
+                "get_account_status": 1
+              }
+              sendMessage(data);
+            },
+            accountLimits: function(){
+              var data = {
+                "get_limits": 1
+              }
+              sendMessage(data);
+            }
+          }
             websocketService.closeConnection = function() {
                 if (dataStream) {
                     dataStream.close();
@@ -419,7 +470,7 @@ angular
                 if (message) {
                     if (message.error) {
                         if (message.error.code === 'InvalidToken') {
-                            localStorageService.manageInvalidToken();
+                            websocketService.logout();
                         }
                     }
 
@@ -623,6 +674,40 @@ angular
                             else if(message.error){
                               $rootScope.$broadcast('tnc_approval:error', message.error);
                             }
+                            break;
+                        case 'change_password':
+                            if(message.change_password){
+                              $rootScope.$broadcast('change_password:success', message.change_password);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('change_password:error', message.error);
+                            }
+                            break;
+                        case 'get_financial_assessment':
+                            if(message.get_financial_assessment){
+                              $rootScope.$broadcast('get_financial_assessment:success', message.get_financial_assessment);
+                            }
+                            else if(message.error) {
+                              $rootScope.$broadcast('get_financial_assessment:error', message.error);
+                            }
+                            break;
+                        case 'set_financial_assessment':
+                            $rootScope.$broadcast('set_financial_assessment:success', message.set_financial_assessment);
+                            break;
+                        case 'get_account_status':
+                            $rootScope.$broadcast('get_account_status', message.get_account_status);
+                            break;
+                        case 'get_limits':
+                            $rootScope.$broadcast('get_limits', message.get_limits);
+                            break;
+                        case 'trading_times':
+                            if(message.trading_times){
+                              $rootScope.$broadcast('trading_times:success', message.trading_times);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('trading_times:error', message.error);
+                            }
+                            break;
                         default:
                     }
                 }

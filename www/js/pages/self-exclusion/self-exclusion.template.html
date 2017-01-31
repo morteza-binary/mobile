@@ -1,11 +1,13 @@
 <ion-view class="self-exclusion">
-  <ion-content>
+  <ion-content class="general-content">
     <form name="self_exclusion_form" ng-submit="vm.submit()">
       <div class="row">
         <div class="col">
           <div class="row">
-            <div class="col title">
-              {{ 'self-exclusion.self-exclusion' | translate }}
+            <div class="col">
+              <h1 class="page-title">
+                {{ 'self-exclusion.self-exclusion' | translate }}
+              </h1>
             </div>
           </div>
         </div>
@@ -18,7 +20,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="max_account_balance"
                      type="number"
                      bg-number
@@ -46,7 +48,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="max_daily_turnover"
                      type="number"
                      bg-number
@@ -75,7 +77,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="daily_limit_on_losses"
                      type="number"
                      bg-number
@@ -104,7 +106,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="max_7_day_turnover_limit"
                      type="number"
                      bg-number
@@ -133,7 +135,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="max_7_day_limit_on_losses"
                      type="number"
                      bg-number
@@ -162,7 +164,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="max_30_day_turnover_limit"
                      type="number"
                      bg-number
@@ -191,7 +193,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="max_30_day_limit_on_losses"
                      type="number"
                      bg-number
@@ -220,7 +222,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="maximum_number_of_open_positions"
                      type="number"
                      bg-number
@@ -248,7 +250,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="session_duration_limit"
                      type="number"
                      maxlength="5"
@@ -277,12 +279,15 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
+              <label class="item item-input">
               <input name="time_out_until"
                      type="datetime-local"
                      ng-model="vm.data.timeout_until"
                      >
+                     </label>
               <div class="hint"> {{ 'self-exclusion.time-out-hint' | translate }} </div>
+
             </div>
           </div>
         </div>
@@ -296,7 +301,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col item-input">
               <input name="exclude-me-until"
                      type="date"
                      ng-model="vm.data.exclude_until"

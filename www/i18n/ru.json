@@ -137,7 +137,9 @@
     "days":"дн.",
     "hours":"час.",
     "minutes":"мин.",
-    "interval_error":"Пожалуйста, введите число от 10 до 120."
+    "interval_error":"Пожалуйста, введите число от 10 до 120.",
+    "view_statement":"Обзор истории счёта",
+    "integer_error":"Интервал должен быть целым числом."
   },
   "newvirtualaccount":{
     "continue":"Продолжить",
@@ -378,12 +380,14 @@
     "profit_table":"Анализ счёта",
     "statement":"История счёта",
     "language":"Язык",
-    "settings":"Настройки"
+    "settings":"Настройки",
+    "resources":"Resources"
   },
   "settings":{
     "settings":"Настройки",
     "security-and-limits":"Безопасность и ограничения",
-    "self-exclusion":"Самоограничение"
+    "self-exclusion":"Самоограничение",
+    "change-password":"Изменение пароля"
   },
   "self-exclusion":{
     "self-exclusion":"Услуги самоограничения",
@@ -444,5 +448,37 @@
   },
   "app-version":{
     "version":"Версия"
+  },
+  "change-password":{
+    "change_password":"Изменение пароля",
+    "current_password":"Текущий пароль",
+    "new_password":"Новый пароль",
+    "verify_new_password":"Подтвердите новый пароль",
+    "password_hint":"Минимум шесть заглавных и строчных букв с цифрами",
+    "password_not_match":"Введённые Вами пароли не совпадают.",
+    "required":"Данное поле является обязательным.",
+    "current_password_required":"Пожалуйста, введите текущий пароль.",
+    "not_match_pattern":"Не соответствует шаблону",
+    "password_changed_text":"Ваш пароль изменён. Пожалуйста, войдите снова."
+  },
+  "resources":{
+    "resources":"Resources",
+    "trading-times":"Trading Times"
+  },
+  "trading-times":{
+    "trading_times":"Trading Times",
+    "date":"Date",
+    "market":"Market",
+    "asset":"Asset",
+    "opens":"Opens",
+    "closes":"Closes",
+    "settles":"Settles",
+    "upcoming_events":"Upcoming Events",
+    "GMT_times":"All times are in GMT (Greenwich Mean Time)."
+  },
+  "new-real-account":{
+    "select_country":"Select Country",
+    "select_country_text":"Please select your country of residence",
+    "continue":"Continue"
   }
 }
