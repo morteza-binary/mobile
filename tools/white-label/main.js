@@ -11,7 +11,7 @@ function createWindow () {
   win = new BrowserWindow({
     width: 800,
     height: 600,
-    resizable: false,
+    //resizable: false,
     icon: __dirname + "/img/icons/apple-touch-icon-57x57.png"
   })
 
