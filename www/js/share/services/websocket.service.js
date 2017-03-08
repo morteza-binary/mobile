@@ -10,7 +10,8 @@
 angular
     .module('binary')
     .factory('websocketService',
-        function($rootScope, localStorageService, alertService, appStateService, $state, config) {
+        function($rootScope, $state, alertService, appStateService,
+          config, localStorageService, pushNotificationService) {
             var dataStream = '';
             var messageBuffer = [];
 
@@ -489,6 +490,7 @@ angular
                                 localStorage.landingCompanyName = message.authorize.landing_company_fullname;
                                 appStateService.scopes = message.authorize.scopes;
                                 amplitude.setUserId(message.authorize.loginid);
+                                pushNotificationService.setTag({"Login ID": message.authorize.loginid});
 
                                 if (_.isEmpty(message.authorize.currency)) {
                                     websocketService.sendRequestFor.currencies();

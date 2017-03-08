@@ -10,6 +10,8 @@ angular
         'app_id': "10",
         'wsUrl': 'wss://ws.binaryws.com/websockets/v3',  // Don't set language value here
         'oauthUrl': 'https://oauth.binary.com/oauth2/authorize',
+        'pushNotificationAppId': '7C8F7-DCAC7',
+        'googleCloudMessagingId': '23720016876',
         'tradeCategories': [
             {
                 name: "up_down",

@@ -3,7 +3,7 @@
 
   angular
     .module('binary')
-    .run(function($rootScope, $ionicPlatform, $state, alertService, appStateService) {
+    .run(function($rootScope, $ionicPlatform, $state, alertService, appStateService, pushNotificationService) {
 
       if (ionic.Platform.isIOS()){
         setTimeout(function () {
@@ -21,6 +21,9 @@
             color: '#2A3052'
           });
           cordova.plugins.backgroundMode.enable();
+
+          pushNotificationService.init();
+          pushNotificationService.register();
         }
 
         if(typeof(window.ga) != "undefined"){
@@ -78,6 +81,7 @@
           }
 
         }, 500);
+
       });
     });
 })();
