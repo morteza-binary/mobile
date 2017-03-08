@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.service('languageService',
-		function($rootScope, $translate, cleanupService) {
+		function($rootScope, $translate, cleanupService, pushNotificationService) {
 
 			/**
 			 * Update default language in local storage
@@ -36,6 +36,7 @@ angular
 				cleanupService.run();
 				$rootScope.$broadcast('language:updated');
 				$translate.use(language);
+        pushNotificationService.setTag({"Site Language": language.toUpperCase()});
 
 			};
 

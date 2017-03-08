@@ -19,7 +19,9 @@
     var factory = {};
 
     $ionicPlatform.ready(function(){
-      factory.pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+      if(window.cordova){
+        factory.pushwoosh = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+      }
     });
 
     factory.init = function(){
@@ -34,22 +36,26 @@
     };
 
     factory.register = function(){
-      factory.pushwoosh.registerDevice((status)=> {
-        factory.token = status.pushToken;
-        console.log("Register to pushwoosh successfully");
-      },
-      (status) => {
-        console.log("Faild to register to pushwoosh");
-        console.log(status);
+      if(factory.pushwoosh){
+        factory.pushwoosh.registerDevice((status)=> {
+          factory.token = status.pushToken;
+          console.log("Register to pushwoosh successfully");
+        },
+        (status) => {
+          console.log("Faild to register to pushwoosh");
+          console.log(status);
+        }
+        );
       }
-      );
     };
 
     factory.setTag = function(tag){
-      factory.pushwoosh.setTags(tag,
-          (status) => { console.log('Tag registered successfully'); },
-          (status) => { console.log('Failed to register the tag'); }
-          );
+      if(factory.pushwoosh){
+        factory.pushwoosh.setTags(tag,
+            (status) => { console.log('Tag registered successfully'); },
+            (status) => { console.log('Failed to register the tag'); }
+            );
+      }
     }
 
     function handleNotification(message){
