@@ -50,6 +50,7 @@
 		    application: "tick-trade",
 		    onError: function(payload){
                 payload.customer.userId = window._trackJs.userId;
+                payload.customer.version = window._trackJs.version;
                 return !(window.location.hostname === "localhost");
             }
 		    // other configuration
@@ -78,12 +79,13 @@
   <body ng-app="binary" ng-controller="BodyController as vm" id="{{vm.getLanguage()}}" ng-cloak>
     <bg-updater></bg-updater>
     <bg-connection-lost></bg-connection-lost>
+    <bg-service-outage></bg-service-outage>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
+    <bg-session-timeout></bg-session-timeout>
     <bg-connectivity></bg-connectivity>
     <ping></ping>
-    <bg-terms-and-conditions></bg-terms-and-conditions>
-
     <bg-reality-check></bg-reality-check>
+    <bg-check-user-status></bg-check-user-status>
 
 
     <!-- ionic/angularjs js -->
@@ -103,6 +105,12 @@
     <script src="lib/validate/validate.min.js"></script>
     <script src="lib/angular-messages/angular-messages.min.js"></script>
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/intl/dist/Intl.js"></script>
+    <script src="lib/intl/locale-data/complete.js"></script>
+
+    <script>
+      var Intl = IntlPolyfill;
+    </script>
 
     <script src="js/main-min.js"></script>
 
