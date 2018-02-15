@@ -4,7 +4,7 @@
   "theme_color": "#2A3052",
   "background_color": "#ffffff",
   "start_url": "http://localhost:8100",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "icons": [
     {
