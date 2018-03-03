@@ -29,7 +29,7 @@
 
 			var response = {};
 			response.url = window.location.href;
-      console.log(widow.opener);
+      console.log(window.opener);
 			window.opener.postMessage(response, '*');
 			window.close();
 
