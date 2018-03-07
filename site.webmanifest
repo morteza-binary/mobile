@@ -8,8 +8,8 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "img/icons/favicon-160x160.png",
-      "sizes": "144x144",
+      "src": "img/icons/favicon-192x192.png",
+      "sizes": "192x192",
       "type": "image/png"
     }
   ]
