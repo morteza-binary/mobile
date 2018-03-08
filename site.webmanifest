@@ -3,7 +3,7 @@
   "short_name": "TickTrade",
   "theme_color": "#2A3052",
   "background_color": "#ffffff",
-  "start_url": "/",
+  "start_url": "/mobile",
   "display": "standalone",
   "orientation": "portrait",
   "icons": [
