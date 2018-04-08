@@ -22,19 +22,26 @@
 
 		<!-- Redirect to #/redirect -->
 		<script type="text/javascript">
-      if (window.navigator && isIOS(window.navigator.appVersion)) {
-       console.log("----------1-----------");
-       const result = /.*\?(.*)/g.exec(window.location.href);
-       if(result) {
-         window.location.href = `/#/redirect?${result[1]}`;
-         console.log("---------2-----------");
-       }
+
+      function handleRedirectionInPWA() {
+        if (window.navigator && isIOS(window.navigator.appVersion)) {
+         console.log("----------1-----------");
+         const result = /.*\?(.*)/g.exec(window.location.href);
+         if(result) {
+           window.location.href = `/#/redirect?${result[1]}`;
+           console.log("---------2-----------");
+         }
+        }
       }
 
+      if( window.navigator.standalone ) {
+        handleRedirectionInPWA();
+      } else {
 			var response = {};
-			response.url = window.location.href;
-			window.opener.postMessage(response, '*');
-			window.close();
+        response.url = window.location.href;
+        window.opener.postMessage(response, '*');
+        window.close();
+      }
 
 
       function isIOS(appVersion) {
