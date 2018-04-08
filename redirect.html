@@ -23,17 +23,6 @@
 		<!-- Redirect to #/redirect -->
 		<script type="text/javascript">
 
-      function handleRedirectionInPWA() {
-        if (window.navigator && isIOS(window.navigator.appVersion)) {
-         console.log("----------1-----------");
-         const result = /.*\?(.*)/g.exec(window.location.href);
-         if(result) {
-           window.location.href = `/#/redirect?${result[1]}`;
-           console.log("---------2-----------");
-         }
-        }
-      }
-
       if( window.navigator.standalone ) {
         handleRedirectionInPWA();
       } else {
@@ -43,6 +32,14 @@
         window.close();
       }
 
+      function handleRedirectionInPWA() {
+        if (window.navigator && isIOS(window.navigator.appVersion)) {
+         const result = /.*\?(.*)/g.exec(window.location.href);
+         if(result) {
+           window.location.href = `/mobile/#/redirect?${result[1]}`;
+         }
+        }
+      }
 
       function isIOS(appVersion) {
         return /IPHONE|IPAD|IPOD/i.test(appVersion);
