@@ -23,6 +23,10 @@
 		<!-- Redirect to #/redirect -->
 		<script type="text/javascript">
 
+        if(/ANDROID/i.test(window.navigator.appVersion)) {
+            const result = /.*\?(.*)/g.exec(window.location.href);
+            window.location.href = 'ticktrade://verfiy?action=signup&code=' + result;
+        }
       if( window.navigator.standalone ) {
         handleRedirectionInPWA();
       } else {

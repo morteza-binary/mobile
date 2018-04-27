@@ -10484,12 +10484,13 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .sign-in .signin-page {
     height: 90vh;
     height: calc(100vh - 45px) !important; }
-    .sign-in .signin-page .row, .sign-in .signin-page form, .sign-in .signin-page oauth {
+    .sign-in .signin-page form, .sign-in .signin-page oauth {
       display: flex;
       flex-grow: 1;
+      flex-direction: column;
       align-items: center;
       justify-content: center; }
-      .sign-in .signin-page .row .col, .sign-in .signin-page form .col, .sign-in .signin-page oauth .col {
+      .sign-in .signin-page form .col, .sign-in .signin-page oauth .col {
         align-items: center;
         justify-content: center; }
     .sign-in .signin-page .app-version {
@@ -10503,59 +10504,29 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     align-items: flex-end !important; }
     .sign-in .regulatory-information a {
       font-weight: normal; }
-  .sign-in #emailform .show-hide-password,
-  .sign-in #virtualws .show-hide-password {
-    margin-top: 15px; }
-    .sign-in #emailform .show-hide-password input#show-hide,
-    .sign-in #virtualws .show-hide-password input#show-hide {
-      width: 20px;
-      top: 2px;
-      position: relative; }
-  .sign-in #emailform .help-block,
-  .sign-in #virtualws .help-block {
-    text-align: left;
-    padding: 0 5px 5px 5px; }
-  .sign-in .list label.item-input {
+  .sign-in #emailform,
+  .sign-in #virtualws {
+    margin: 0 auto; }
+    .sign-in #emailform .show-hide-password label,
+    .sign-in #virtualws .show-hide-password label {
+      font-size: 0.8rem; }
+  .sign-in .language label.item-input {
     width: 75%;
     margin: 0 auto; }
-    .sign-in .list label.item-input i {
+    .sign-in .language label.item-input i {
       font-size: 40px;
       width: 40px;
       text-align: center; }
-      .sign-in .list label.item-input i.icon-small {
+      .sign-in .language label.item-input i.icon-small {
         font-size: 28px; }
-  .sign-in ::-webkit-input-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in ::-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-ms-input-placeholder {
-    color: #C2C2C2; }
 
-@media only screen and (max-device-width: 480px) {
-  .sign-in ::-webkit-input-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in ::-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-ms-input-placeholder {
-    color: #C2C2C2; } }
+@media screen and (min-width: 780px) {
+  .sign-in #emailform, .sign-in #virtualws {
+    width: 75%; } }
 
-@media only screen and (min-device-width: 480px) {
-  .sign-in .list label.item-input i {
-    color: #15212D; }
-  .sign-in .list label.item-select i {
-    color: #15212D; }
-  .sign-in ::-webkit-input-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in ::-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-ms-input-placeholder {
-    color: #C2C2C2; } }
+@media screen and (min-width: 960px) {
+  .sign-in #emailform, .sign-in #virtualws {
+    width: 50%; } }
 
 .trade {
   background: #fff; }
@@ -10775,10 +10746,58 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                 background: #2E8836;
                 height: auto;
                 text-transform: capitalize; }
-              .trade #trade-container bg-purchase .purchase .contract .row .col .price-container {
-                display: inline-block;
-                vertical-align: middle;
-                line-height: normal; }
+            .trade #trade-container bg-purchase .purchase .contract .row.price-container {
+              height: auto;
+              align-items: center;
+              margin-bottom: 5px; }
+              .trade #trade-container bg-purchase .purchase .contract .row.price-container .longcode-button-container {
+                text-align: center;
+                display: flex;
+                height: auto;
+                align-items: center;
+                padding: 5px;
+                width: auto;
+                max-width: 45px; }
+                .trade #trade-container bg-purchase .purchase .contract .row.price-container .longcode-button-container .longcode-button {
+                  padding-right: 15px;
+                  padding-left: 15px;
+                  font-size: 22px; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.price-container .longcode-button-container .longcode-button i {
+                    color: #2A3052;
+                    margin: 0 auto; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.price-container .longcode-button-container .longcode-button.disabled {
+                    opacity: 0.4;
+                    cursor: default !important;
+                    pointer-events: none; }
+              .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content {
+                height: auto;
+                margin: 0;
+                text-align: center; }
+                .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .price-divider {
+                  padding: 0 2.5px;
+                  display: inline-block; }
+                .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .net-profit {
+                  color: #000;
+                  display: inline-block;
+                  vertical-align: middle;
+                  line-height: normal;
+                  align-items: center;
+                  font-size: 0.8rem;
+                  text-align: center; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .net-profit span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height: normal; }
+                .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .return {
+                  display: inline-block;
+                  vertical-align: middle;
+                  align-items: center;
+                  font-size: 0.8rem;
+                  text-align: center; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .return span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height: normal; }
             .trade #trade-container bg-purchase .purchase .contract .row.basis-container {
               height: auto;
               align-items: center;
@@ -10788,9 +10807,12 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                 display: flex;
                 height: auto;
                 align-items: center;
-                padding: 10px 0; }
+                padding: 10px;
+                width: 50%; }
                 .trade #trade-container bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
-                  margin: 0 auto; }
+                  margin: 0 auto;
+                  max-width: 55px;
+                  max-height: 55px; }
               .trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content {
                 height: auto;
                 margin: 0; }
@@ -11310,6 +11332,25 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-underlyings .underlyings .row .col a:hover {
               color: #000 !important; }
 
+.loading {
+  bottom: 1rem;
+  margin: 0 auto;
+  width: 90%;
+  position: absolute; }
+
+@media screen and (min-width: 960px) {
+  .loading {
+    width: 80vw;
+    max-width: 768px; } }
+
+@media screen and (max-width: 780px) {
+  .return, .net-profit {
+    width: 100%;
+    padding: 0;
+    font-size: 1rem; }
+  .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .price-divider {
+    display: none; } }
+
 @media only screen and (max-device-height: 480px) {
   .trade #tradeChart {
     width: 100% !important;
@@ -11320,9 +11361,6 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .trade .row + .row {
     margin-top: 0 !important;
     padding-top: 5px !important; }
-  bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
-    width: 30px;
-    height: 30px; }
   bg-purchase .purchase .contract .row.basis-container .basis-content {
     height: 40px; }
     bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title {
@@ -11357,9 +11395,6 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .trade .row + .row {
     margin-top: 0 !important;
     padding-top: 5px !important; }
-  bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
-    width: 40px;
-    height: 40px; }
   bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title {
     height: 25px; }
   bg-purchase .purchase .contract .row.basis-container .basis-content .basis {
@@ -11820,7 +11855,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     .accounts-management ul li .list-element {
       display: table-cell;
       padding: 5px;
-      font-size: 0.8rem; }
+      font-size: 0.8rem;
+      vertical-align: middle; }
 
 .ios-pwa-prompt .logo {
   width: 50%; }

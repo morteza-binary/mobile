@@ -92,7 +92,8 @@
     "transaction_id": "Transaction Reference",
     "buy_again": "Buy Again",
     "sell": "Sell",
-    "barrier": "Barrier offset"
+    "barrier": "Barrier offset",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Exit",
@@ -140,9 +141,9 @@
     "signup": "Sign up",
     "email": "Email",
     "signup-question": "Don't have an account?",
-    "verification-code": "Verification Code",
-    "password": "Password",
-    "residence": "Residence:",
+    "verification-code": "Verification code",
+    "password": "Choose a password",
+    "residence": "Country of residence",
     "select": "Select your country",
     "isrequired": "(Requierd)",
     "password_hint": "Password must be minimum of six lower and uppercase letters with numbers",
@@ -355,7 +356,8 @@
     "open_real":"Upgrade to a real account",
     "open_financial": "Open a financial account",
     "create_account": "Create account",
-    "accounts_list": "Accounts list"
+    "accounts_list": "Accounts list",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Settings",
@@ -410,7 +412,7 @@
     "second_line_of_home_address": "Second line of home address",
     "town_city": "Town/City",
     "state_province": "State/Province",
-    "posta_code_zip": "Postal Code/ZIP",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "Telephone",
     "update_profile": "Update Profile",
     "success": "Success",
@@ -432,7 +434,8 @@
     "tax-identification-number-pattern-error": "Only letters, numbers, and hyphen are allowed.",
     "cancel": "Cancel",
     "continue": "Continue",
-    "account_opening_reason": "Account opening reason"
+    "account_opening_reason": "Account opening reason",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its" : "has updated its",
