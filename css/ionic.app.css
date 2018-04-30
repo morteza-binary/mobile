@@ -10894,6 +10894,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                 color: #2A3052; }
               .trade #trade-container bg-contract-summary .contract-summary .row .col.buy .title {
                 color: #000; }
+              .trade #trade-container bg-contract-summary .contract-summary .row .col.buy .crypto {
+                font-size: 0.9rem !important; }
             .trade #trade-container bg-contract-summary .contract-summary .row .col.sell {
               padding: 0; }
               .trade #trade-container bg-contract-summary .contract-summary .row .col.sell .loss {
@@ -10902,10 +10904,14 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                 color: #2A3052 !important; }
               .trade #trade-container bg-contract-summary .contract-summary .row .col.sell .title {
                 color: #000; }
+              .trade #trade-container bg-contract-summary .contract-summary .row .col.sell .crypto {
+                font-size: 0.9rem !important; }
             .trade #trade-container bg-contract-summary .contract-summary .row .col.profit {
               padding: 0; }
               .trade #trade-container bg-contract-summary .contract-summary .row .col.profit .title {
                 color: #000; }
+              .trade #trade-container bg-contract-summary .contract-summary .row .col.profit .crypto {
+                font-size: 0.9rem !important; }
             .trade #trade-container bg-contract-summary .contract-summary .row .col.win {
               color: #2E8836 !important; }
             .trade #trade-container bg-contract-summary .contract-summary .row .col.lose {
@@ -10933,6 +10939,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           padding: 0; }
           .trade #trade-container .buy-again-container .buy-again .col .row:last-child {
             font-weight: bold; }
+          .trade #trade-container .buy-again-container .buy-again .col .crypto {
+            font-size: 0.9rem !important; }
           .trade #trade-container .buy-again-container .buy-again .col .button {
             white-space: nowrap;
             font-size: 1rem;
