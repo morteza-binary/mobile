@@ -24,6 +24,7 @@
 		<script type="text/javascript">
 
         if(/ANDROID/i.test(window.navigator.appVersion)) {
+            console.log("in first if");
             const result = /.*\?(.*)/g.exec(window.location.href);
             window.location.href = 'ticktrade://redirect?action=oauth&' + result[1];
         }
@@ -32,6 +33,8 @@
       } else {
 			var response = {};
         response.url = window.location.href;
+        console.log("in else");
+        console.log(window.opener);
         window.opener.postMessage(response, '*');
         window.close();
       }
