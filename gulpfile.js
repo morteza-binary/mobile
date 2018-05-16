@@ -143,13 +143,13 @@ gulp.task('code-push', function(done){
   }
 
   console.log('  ' + gutil.colors.blue('Preparing files ...'));
-  sh.sed('-i', ".otherwise('/')", ".otherwise('/update')", 'www/js/configs/states.config.js');
+  sh.sed('-i', '.otherwise("/")', '.otherwise("/update")', 'www/js/configs/states.config.js');
 
   console.log('  ' + gutil.colors.blue('Run code-push ...'));
   sh.exec('code-push release-cordova ' + app + ' ' + platform + ' --deploymentName ' + deployment + ' --mandatory');
 
   console.log('  ' + gutil.colors.blue('Rolling back dump changes ...'));
-  sh.sed('-i', ".otherwise('/update')", ".otherwise('/')", 'www/js/configs/states.config.js');
+  sh.sed('-i', '.otherwise("/update")', '.otherwise("/")', 'www/js/configs/states.config.js');
   sh.exec('ionic prepare');
 
   done();
@@ -220,6 +220,22 @@ gulp.task('deploy', ['service-worker'], function(){
 
 gulp.task('build-desktop', function(){
   electronPkg.build();
+});
+
+gulp.task('release-qa', function() {
+    
+    const gitResult = sh.exec('echo | git branch | grep "*"');
+
+    if (gitResult && gitResult.output && gitResult.output.indexOf('qa_version') < 0) {
+        console.log("You're not in qa_version branch");
+        //process.exit(-1);
+    }
+
+    const qaMachine = getArgvBySwitchName('--qa_machine');
+    console.log(qaMachine);
+    sh.exec('ionic cordova build --release android -- --qa_machine=' + qaMachine);
+
+
 });
 
 
