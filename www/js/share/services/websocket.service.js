@@ -219,6 +219,9 @@ angular
                 sessionStorage.removeItem("_interval");
                 sessionStorage.removeItem("realityCheckStart");
                 localStorage.removeItem("termsConditionsVersion");
+                localStorage.removeItem("landingCompanyObject");
+                localStorage.removeItem("landingCompany");
+                localStorage.removeItem("landingCompanyName");
                 appStateService.profitTableRefresh = true;
                 appStateService.statementRefresh = true;
                 sessionStorage.removeItem("countryParams");
@@ -241,6 +244,7 @@ angular
                 appStateService.selectedCurrency = false;
                 notificationService.emptyNotices();
                 appStateService.checkingUpgradeDone = false;
+                appStateService.loginFinished = false;
 
                 if (error) {
                     $translate(["alert.error", "alert.ok"]).then(translation => {
@@ -609,6 +613,7 @@ angular
                                 } else {
                                     sessionStorage.currency = message.authorize.currency;
                                 }
+                                appStateService.loginFinished = true;
 
                                 $rootScope.$broadcast(
                                     "authorize",

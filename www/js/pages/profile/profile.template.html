@@ -37,7 +37,8 @@
               <div class="col item-input">
                 <select name="country"
                         ng-model="vm.profile.country"
-                        ng-options="residence.value as residence.text for residence in vm.residenceList"
+                        ng-options="residence.value as residence.text disable
+                  when residence.disabled for residence in vm.residenceList track by residence.value"
                         required>
                   <option value="" disabled>
                     {{ 'profile.select' | translate }}
@@ -494,7 +495,7 @@
           <button class="button button-block"
                   ng-click="vm.updateProfile()"
                   ng-disabled="!profileForm.$valid || vm.disableUpdateButton ||
-                  (!vm.taxInfoIsOptional && !vm.profile.tax_residence)">
+                  (!vm.taxInfoIsOptional && !vm.profile.tax_residence && !vm.isVirtualAccount)">
             {{ 'profile.update_profile' | translate }}
           </button>
         </div>
