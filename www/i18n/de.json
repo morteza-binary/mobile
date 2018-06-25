@@ -305,7 +305,8 @@
     "self_exclusion": "Selbstausschluss",
     "change_password": "Passwort ändern",
     "financial_assessment": "Finanzielle Bewertung",
-    "limits": "Grenzen"
+    "limits": "Grenzen",
+    "account_categorisation": "Account Categorisation"
   },
   "self-exclusion": {
     "self_exclusion": "Selbstausschluss Einrichtungen",
@@ -492,21 +493,21 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "Sie haben keine Konten für MetaTrader, bitte erstellen Sie eines und versuchen Sie es erneut.",
-    "create_account": "Create New Account",
-    "feature_is_not_available": "Sorry, this feature is not available in your jurisdiction.",
+    "create_account": "Neues Konto einrichten",
+    "feature_is_not_available": "Leider ist dieses Feature in Ihrer Gerichtsbarkeit nicht verfügbar.",
     "meta_trader_accounts": "Meta Trader Konten",
     "demo_account": "Demo-Konto",
-    "real_money_account": "Real-Money Account",
+    "real_money_account": "Echtgeldkonto",
     "login": "Login",
     "balance": "Guthaben",
     "name": "Name",
     "start_trading_with_mt5": "Beginnen Sie mit MT5 zu Handeln",
-    "upgrade_real_account": "To create a real money Account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_real_account": "Um ein Echtgeldkonto für MT5 erstellen zu können, rüsten Sie bitte auf ein Binary.com Echtes Konto auf.",
     "standard": "Standard",
-    "advanced": "Advanced",
-    "mam_advanced": "MAM Advanced",
-    "volatility_indices": "Volatility Indices",
-    "mam_volatility_indices": "MAM Volatility Indices"
+    "advanced": "Fortgeschritten",
+    "mam_advanced": "MAM Fortgeschritten",
+    "volatility_indices": "Volatilität Indizes",
+    "mam_volatility_indices": "MAM Volatilität Indizes"
   },
   "authentication": {
     "authentication": "Authentifizierung",
@@ -732,5 +733,15 @@
     "accept": "Akzeptieren",
     "decline": "Ablehnen",
     "you_may_decline": "Hinweis: Sie können zurückgehen und als Privatkunde fortfahren."
+  },
+  "account-categorisation": {
+    "account_categorisation": "Account Categorisation",
+    "processing": "Your application to be treated as a professional client is being processed.",
+    "professional": "You are categorised as a professional client.",
+    "error": "Sorry, an error occurred while processing your request.",
+    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
+    "professional_client_verify": "I want to be treated as a professional client.",
+    "what_is_this": "What is this?",
+    "submit": "Submit"
   }
 }

@@ -305,7 +305,8 @@
     "self_exclusion": "自我禁止",
     "change_password": "更改密码",
     "financial_assessment": "财务评估",
-    "limits": "限制"
+    "limits": "限制",
+    "account_categorisation": "Account Categorisation"
   },
   "self-exclusion": {
     "self_exclusion": "自我禁止设施",
@@ -492,21 +493,21 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "您没有MetaTrader账户。请先开立账户，然后重试。",
-    "create_account": "Create New Account",
-    "feature_is_not_available": "Sorry, this feature is not available in your jurisdiction.",
+    "create_account": "开立新账户",
+    "feature_is_not_available": "对不起，您的管辖权内无法使用此功能。",
     "meta_trader_accounts": "Meta Trader账户",
     "demo_account": "模拟账户",
-    "real_money_account": "Real-Money Account",
-    "login": "Login",
+    "real_money_account": "真实资金账户",
+    "login": "登录",
     "balance": "余额",
     "name": "姓名",
     "start_trading_with_mt5": "开始用 MT5 交易",
-    "upgrade_real_account": "To create a real money Account for MT5, please upgrade to Binary.com Real Account.",
-    "standard": "Standard",
-    "advanced": "Advanced",
-    "mam_advanced": "MAM Advanced",
-    "volatility_indices": "Volatility Indices",
-    "mam_volatility_indices": "MAM Volatility Indices"
+    "upgrade_real_account": "如要开立MT5真实资金账户，请升级为Binary.com真实账户。",
+    "standard": "标准",
+    "advanced": "高级",
+    "mam_advanced": "MAM 高级",
+    "volatility_indices": "波动率指数",
+    "mam_volatility_indices": "MAM波动率指数"
   },
   "authentication": {
     "authentication": "验证",
@@ -732,5 +733,15 @@
     "accept": "接受",
     "decline": "下降",
     "you_may_decline": "注: 您可以拒绝并继续保留零售客户资格。"
+  },
+  "account-categorisation": {
+    "account_categorisation": "Account Categorisation",
+    "processing": "Your application to be treated as a professional client is being processed.",
+    "professional": "You are categorised as a professional client.",
+    "error": "Sorry, an error occurred while processing your request.",
+    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
+    "professional_client_verify": "I want to be treated as a professional client.",
+    "what_is_this": "What is this?",
+    "submit": "Submit"
   }
 }
