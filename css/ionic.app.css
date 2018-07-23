@@ -10468,6 +10468,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     .trade #trade-container bg-chart,
     .trade #trade-container bg-contract-summary,
     .trade #trade-container bg-digits,
+    .trade #trade-container bg-selected-tick,
     .trade #trade-container bg-longcode,
     .trade #trade-container bg-markets,
     .trade #trade-container bg-options,
@@ -10521,31 +10522,52 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
         .trade #trade-container bg-options .options ion-tab {
           color: #000; }
     .trade #trade-container bg-digits,
+    .trade #trade-container bg-selected-tick,
     .trade #trade-container bg-ticks {
       width: 100vw; }
       .trade #trade-container bg-digits .digits,
+      .trade #trade-container bg-digits .selected-tick,
       .trade #trade-container bg-digits .ticks,
+      .trade #trade-container bg-selected-tick .digits,
+      .trade #trade-container bg-selected-tick .selected-tick,
+      .trade #trade-container bg-selected-tick .ticks,
       .trade #trade-container bg-ticks .digits,
+      .trade #trade-container bg-ticks .selected-tick,
       .trade #trade-container bg-ticks .ticks {
         width: 100vw;
         display: flex; }
         .trade #trade-container bg-digits .digits .row,
+        .trade #trade-container bg-digits .selected-tick .row,
         .trade #trade-container bg-digits .ticks .row,
+        .trade #trade-container bg-selected-tick .digits .row,
+        .trade #trade-container bg-selected-tick .selected-tick .row,
+        .trade #trade-container bg-selected-tick .ticks .row,
         .trade #trade-container bg-ticks .digits .row,
+        .trade #trade-container bg-ticks .selected-tick .row,
         .trade #trade-container bg-ticks .ticks .row {
           display: flex;
           flex-direction: row; }
           .trade #trade-container bg-digits .digits .row .col,
+          .trade #trade-container bg-digits .selected-tick .row .col,
           .trade #trade-container bg-digits .ticks .row .col,
+          .trade #trade-container bg-selected-tick .digits .row .col,
+          .trade #trade-container bg-selected-tick .selected-tick .row .col,
+          .trade #trade-container bg-selected-tick .ticks .row .col,
           .trade #trade-container bg-ticks .digits .row .col,
+          .trade #trade-container bg-ticks .selected-tick .row .col,
           .trade #trade-container bg-ticks .ticks .row .col {
             display: flex;
             flex-grow: 1;
             padding: 0;
             margin: 0; }
             .trade #trade-container bg-digits .digits .row .col .button,
+            .trade #trade-container bg-digits .selected-tick .row .col .button,
             .trade #trade-container bg-digits .ticks .row .col .button,
+            .trade #trade-container bg-selected-tick .digits .row .col .button,
+            .trade #trade-container bg-selected-tick .selected-tick .row .col .button,
+            .trade #trade-container bg-selected-tick .ticks .row .col .button,
             .trade #trade-container bg-ticks .digits .row .col .button,
+            .trade #trade-container bg-ticks .selected-tick .row .col .button,
             .trade #trade-container bg-ticks .ticks .row .col .button {
               padding: 0;
               margin: 0;
@@ -10948,6 +10970,25 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
               color: #fff !important;
               background: #2E8836 !important;
               border-color: #2E8836 !important; }
+    .trade #trade-container bg-tick-result {
+      padding: 5px;
+      max-height: 75px;
+      margin: 0 auto;
+      width: 100%; }
+      .trade #trade-container bg-tick-result .tick-result {
+        border: 1px solid #DEDEDE;
+        background: #fff;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        color: #000;
+        padding: 5px 0; }
+        .trade #trade-container bg-tick-result .tick-result .col {
+          padding: 0 !important; }
+        .trade #trade-container bg-tick-result .tick-result .number-rec {
+          display: inline-block;
+          border-radius: 2px;
+          font-size: 0.9rem; }
 
 .modal {
   opacity: 0.95;
@@ -10964,6 +11005,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     .modal ion-content .scroll {
       height: 100% !important; }
   .modal bg-digits,
+  .modal bg-selected-tick,
   .modal bg-markets,
   .modal bg-ticks,
   .modal bg-tradetypes,
@@ -10979,38 +11021,51 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     display: flex;
     align-items: center; }
     .modal bg-digits .ionic-scroll,
+    .modal bg-selected-tick .ionic-scroll,
     .modal bg-markets .ionic-scroll,
     .modal bg-ticks .ionic-scroll,
     .modal bg-tradetypes .ionic-scroll,
     .modal bg-underlyings .ionic-scroll {
       min-height: 30px; }
       .modal bg-digits .ionic-scroll .scroll,
+      .modal bg-selected-tick .ionic-scroll .scroll,
       .modal bg-markets .ionic-scroll .scroll,
       .modal bg-ticks .ionic-scroll .scroll,
       .modal bg-tradetypes .ionic-scroll .scroll,
       .modal bg-underlyings .ionic-scroll .scroll {
         min-height: 30px; }
     .modal bg-digits .digits,
+    .modal bg-digits .selected-tick,
     .modal bg-digits .markets,
     .modal bg-digits .ticks,
     .modal bg-digits .trade-types,
     .modal bg-digits .underlyings,
+    .modal bg-selected-tick .digits,
+    .modal bg-selected-tick .selected-tick,
+    .modal bg-selected-tick .markets,
+    .modal bg-selected-tick .ticks,
+    .modal bg-selected-tick .trade-types,
+    .modal bg-selected-tick .underlyings,
     .modal bg-markets .digits,
+    .modal bg-markets .selected-tick,
     .modal bg-markets .markets,
     .modal bg-markets .ticks,
     .modal bg-markets .trade-types,
     .modal bg-markets .underlyings,
     .modal bg-ticks .digits,
+    .modal bg-ticks .selected-tick,
     .modal bg-ticks .markets,
     .modal bg-ticks .ticks,
     .modal bg-ticks .trade-types,
     .modal bg-ticks .underlyings,
     .modal bg-tradetypes .digits,
+    .modal bg-tradetypes .selected-tick,
     .modal bg-tradetypes .markets,
     .modal bg-tradetypes .ticks,
     .modal bg-tradetypes .trade-types,
     .modal bg-tradetypes .underlyings,
     .modal bg-underlyings .digits,
+    .modal bg-underlyings .selected-tick,
     .modal bg-underlyings .markets,
     .modal bg-underlyings .ticks,
     .modal bg-underlyings .trade-types,
@@ -11024,26 +11079,37 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
       align-items: center;
       height: 100%; }
       .modal bg-digits .digits .row,
+      .modal bg-digits .selected-tick .row,
       .modal bg-digits .markets .row,
       .modal bg-digits .ticks .row,
       .modal bg-digits .trade-types .row,
       .modal bg-digits .underlyings .row,
+      .modal bg-selected-tick .digits .row,
+      .modal bg-selected-tick .selected-tick .row,
+      .modal bg-selected-tick .markets .row,
+      .modal bg-selected-tick .ticks .row,
+      .modal bg-selected-tick .trade-types .row,
+      .modal bg-selected-tick .underlyings .row,
       .modal bg-markets .digits .row,
+      .modal bg-markets .selected-tick .row,
       .modal bg-markets .markets .row,
       .modal bg-markets .ticks .row,
       .modal bg-markets .trade-types .row,
       .modal bg-markets .underlyings .row,
       .modal bg-ticks .digits .row,
+      .modal bg-ticks .selected-tick .row,
       .modal bg-ticks .markets .row,
       .modal bg-ticks .ticks .row,
       .modal bg-ticks .trade-types .row,
       .modal bg-ticks .underlyings .row,
       .modal bg-tradetypes .digits .row,
+      .modal bg-tradetypes .selected-tick .row,
       .modal bg-tradetypes .markets .row,
       .modal bg-tradetypes .ticks .row,
       .modal bg-tradetypes .trade-types .row,
       .modal bg-tradetypes .underlyings .row,
       .modal bg-underlyings .digits .row,
+      .modal bg-underlyings .selected-tick .row,
       .modal bg-underlyings .markets .row,
       .modal bg-underlyings .ticks .row,
       .modal bg-underlyings .trade-types .row,
@@ -11057,26 +11123,37 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
         flex-direction: row;
         flex-wrap: wrap; }
         .modal bg-digits .digits .row .col,
+        .modal bg-digits .selected-tick .row .col,
         .modal bg-digits .markets .row .col,
         .modal bg-digits .ticks .row .col,
         .modal bg-digits .trade-types .row .col,
         .modal bg-digits .underlyings .row .col,
+        .modal bg-selected-tick .digits .row .col,
+        .modal bg-selected-tick .selected-tick .row .col,
+        .modal bg-selected-tick .markets .row .col,
+        .modal bg-selected-tick .ticks .row .col,
+        .modal bg-selected-tick .trade-types .row .col,
+        .modal bg-selected-tick .underlyings .row .col,
         .modal bg-markets .digits .row .col,
+        .modal bg-markets .selected-tick .row .col,
         .modal bg-markets .markets .row .col,
         .modal bg-markets .ticks .row .col,
         .modal bg-markets .trade-types .row .col,
         .modal bg-markets .underlyings .row .col,
         .modal bg-ticks .digits .row .col,
+        .modal bg-ticks .selected-tick .row .col,
         .modal bg-ticks .markets .row .col,
         .modal bg-ticks .ticks .row .col,
         .modal bg-ticks .trade-types .row .col,
         .modal bg-ticks .underlyings .row .col,
         .modal bg-tradetypes .digits .row .col,
+        .modal bg-tradetypes .selected-tick .row .col,
         .modal bg-tradetypes .markets .row .col,
         .modal bg-tradetypes .ticks .row .col,
         .modal bg-tradetypes .trade-types .row .col,
         .modal bg-tradetypes .underlyings .row .col,
         .modal bg-underlyings .digits .row .col,
+        .modal bg-underlyings .selected-tick .row .col,
         .modal bg-underlyings .markets .row .col,
         .modal bg-underlyings .ticks .row .col,
         .modal bg-underlyings .trade-types .row .col,
@@ -11091,52 +11168,74 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           align-items: center;
           display: flex; }
           .modal bg-digits .digits .row .col:first-child,
+          .modal bg-digits .selected-tick .row .col:first-child,
           .modal bg-digits .markets .row .col:first-child,
           .modal bg-digits .ticks .row .col:first-child,
           .modal bg-digits .trade-types .row .col:first-child,
           .modal bg-digits .underlyings .row .col:first-child,
+          .modal bg-selected-tick .digits .row .col:first-child,
+          .modal bg-selected-tick .selected-tick .row .col:first-child,
+          .modal bg-selected-tick .markets .row .col:first-child,
+          .modal bg-selected-tick .ticks .row .col:first-child,
+          .modal bg-selected-tick .trade-types .row .col:first-child,
+          .modal bg-selected-tick .underlyings .row .col:first-child,
           .modal bg-markets .digits .row .col:first-child,
+          .modal bg-markets .selected-tick .row .col:first-child,
           .modal bg-markets .markets .row .col:first-child,
           .modal bg-markets .ticks .row .col:first-child,
           .modal bg-markets .trade-types .row .col:first-child,
           .modal bg-markets .underlyings .row .col:first-child,
           .modal bg-ticks .digits .row .col:first-child,
+          .modal bg-ticks .selected-tick .row .col:first-child,
           .modal bg-ticks .markets .row .col:first-child,
           .modal bg-ticks .ticks .row .col:first-child,
           .modal bg-ticks .trade-types .row .col:first-child,
           .modal bg-ticks .underlyings .row .col:first-child,
           .modal bg-tradetypes .digits .row .col:first-child,
+          .modal bg-tradetypes .selected-tick .row .col:first-child,
           .modal bg-tradetypes .markets .row .col:first-child,
           .modal bg-tradetypes .ticks .row .col:first-child,
           .modal bg-tradetypes .trade-types .row .col:first-child,
           .modal bg-tradetypes .underlyings .row .col:first-child,
           .modal bg-underlyings .digits .row .col:first-child,
+          .modal bg-underlyings .selected-tick .row .col:first-child,
           .modal bg-underlyings .markets .row .col:first-child,
           .modal bg-underlyings .ticks .row .col:first-child,
           .modal bg-underlyings .trade-types .row .col:first-child,
           .modal bg-underlyings .underlyings .row .col:first-child {
             border-top: none; }
           .modal bg-digits .digits .row .col:last-child,
+          .modal bg-digits .selected-tick .row .col:last-child,
           .modal bg-digits .markets .row .col:last-child,
           .modal bg-digits .ticks .row .col:last-child,
           .modal bg-digits .trade-types .row .col:last-child,
           .modal bg-digits .underlyings .row .col:last-child,
+          .modal bg-selected-tick .digits .row .col:last-child,
+          .modal bg-selected-tick .selected-tick .row .col:last-child,
+          .modal bg-selected-tick .markets .row .col:last-child,
+          .modal bg-selected-tick .ticks .row .col:last-child,
+          .modal bg-selected-tick .trade-types .row .col:last-child,
+          .modal bg-selected-tick .underlyings .row .col:last-child,
           .modal bg-markets .digits .row .col:last-child,
+          .modal bg-markets .selected-tick .row .col:last-child,
           .modal bg-markets .markets .row .col:last-child,
           .modal bg-markets .ticks .row .col:last-child,
           .modal bg-markets .trade-types .row .col:last-child,
           .modal bg-markets .underlyings .row .col:last-child,
           .modal bg-ticks .digits .row .col:last-child,
+          .modal bg-ticks .selected-tick .row .col:last-child,
           .modal bg-ticks .markets .row .col:last-child,
           .modal bg-ticks .ticks .row .col:last-child,
           .modal bg-ticks .trade-types .row .col:last-child,
           .modal bg-ticks .underlyings .row .col:last-child,
           .modal bg-tradetypes .digits .row .col:last-child,
+          .modal bg-tradetypes .selected-tick .row .col:last-child,
           .modal bg-tradetypes .markets .row .col:last-child,
           .modal bg-tradetypes .ticks .row .col:last-child,
           .modal bg-tradetypes .trade-types .row .col:last-child,
           .modal bg-tradetypes .underlyings .row .col:last-child,
           .modal bg-underlyings .digits .row .col:last-child,
+          .modal bg-underlyings .selected-tick .row .col:last-child,
           .modal bg-underlyings .markets .row .col:last-child,
           .modal bg-underlyings .ticks .row .col:last-child,
           .modal bg-underlyings .trade-types .row .col:last-child,
@@ -11144,6 +11243,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             border-bottom: none; }
           .modal bg-digits .digits .row .col .button,
           .modal bg-digits .digits .row .col a,
+          .modal bg-digits .selected-tick .row .col .button,
+          .modal bg-digits .selected-tick .row .col a,
           .modal bg-digits .markets .row .col .button,
           .modal bg-digits .markets .row .col a,
           .modal bg-digits .ticks .row .col .button,
@@ -11152,8 +11253,22 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           .modal bg-digits .trade-types .row .col a,
           .modal bg-digits .underlyings .row .col .button,
           .modal bg-digits .underlyings .row .col a,
+          .modal bg-selected-tick .digits .row .col .button,
+          .modal bg-selected-tick .digits .row .col a,
+          .modal bg-selected-tick .selected-tick .row .col .button,
+          .modal bg-selected-tick .selected-tick .row .col a,
+          .modal bg-selected-tick .markets .row .col .button,
+          .modal bg-selected-tick .markets .row .col a,
+          .modal bg-selected-tick .ticks .row .col .button,
+          .modal bg-selected-tick .ticks .row .col a,
+          .modal bg-selected-tick .trade-types .row .col .button,
+          .modal bg-selected-tick .trade-types .row .col a,
+          .modal bg-selected-tick .underlyings .row .col .button,
+          .modal bg-selected-tick .underlyings .row .col a,
           .modal bg-markets .digits .row .col .button,
           .modal bg-markets .digits .row .col a,
+          .modal bg-markets .selected-tick .row .col .button,
+          .modal bg-markets .selected-tick .row .col a,
           .modal bg-markets .markets .row .col .button,
           .modal bg-markets .markets .row .col a,
           .modal bg-markets .ticks .row .col .button,
@@ -11164,6 +11279,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           .modal bg-markets .underlyings .row .col a,
           .modal bg-ticks .digits .row .col .button,
           .modal bg-ticks .digits .row .col a,
+          .modal bg-ticks .selected-tick .row .col .button,
+          .modal bg-ticks .selected-tick .row .col a,
           .modal bg-ticks .markets .row .col .button,
           .modal bg-ticks .markets .row .col a,
           .modal bg-ticks .ticks .row .col .button,
@@ -11174,6 +11291,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           .modal bg-ticks .underlyings .row .col a,
           .modal bg-tradetypes .digits .row .col .button,
           .modal bg-tradetypes .digits .row .col a,
+          .modal bg-tradetypes .selected-tick .row .col .button,
+          .modal bg-tradetypes .selected-tick .row .col a,
           .modal bg-tradetypes .markets .row .col .button,
           .modal bg-tradetypes .markets .row .col a,
           .modal bg-tradetypes .ticks .row .col .button,
@@ -11184,6 +11303,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           .modal bg-tradetypes .underlyings .row .col a,
           .modal bg-underlyings .digits .row .col .button,
           .modal bg-underlyings .digits .row .col a,
+          .modal bg-underlyings .selected-tick .row .col .button,
+          .modal bg-underlyings .selected-tick .row .col a,
           .modal bg-underlyings .markets .row .col .button,
           .modal bg-underlyings .markets .row .col a,
           .modal bg-underlyings .ticks .row .col .button,
@@ -11204,6 +11325,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             padding: 10px 5px; }
             .modal bg-digits .digits .row .col .button:hover,
             .modal bg-digits .digits .row .col a:hover,
+            .modal bg-digits .selected-tick .row .col .button:hover,
+            .modal bg-digits .selected-tick .row .col a:hover,
             .modal bg-digits .markets .row .col .button:hover,
             .modal bg-digits .markets .row .col a:hover,
             .modal bg-digits .ticks .row .col .button:hover,
@@ -11212,8 +11335,22 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-digits .trade-types .row .col a:hover,
             .modal bg-digits .underlyings .row .col .button:hover,
             .modal bg-digits .underlyings .row .col a:hover,
+            .modal bg-selected-tick .digits .row .col .button:hover,
+            .modal bg-selected-tick .digits .row .col a:hover,
+            .modal bg-selected-tick .selected-tick .row .col .button:hover,
+            .modal bg-selected-tick .selected-tick .row .col a:hover,
+            .modal bg-selected-tick .markets .row .col .button:hover,
+            .modal bg-selected-tick .markets .row .col a:hover,
+            .modal bg-selected-tick .ticks .row .col .button:hover,
+            .modal bg-selected-tick .ticks .row .col a:hover,
+            .modal bg-selected-tick .trade-types .row .col .button:hover,
+            .modal bg-selected-tick .trade-types .row .col a:hover,
+            .modal bg-selected-tick .underlyings .row .col .button:hover,
+            .modal bg-selected-tick .underlyings .row .col a:hover,
             .modal bg-markets .digits .row .col .button:hover,
             .modal bg-markets .digits .row .col a:hover,
+            .modal bg-markets .selected-tick .row .col .button:hover,
+            .modal bg-markets .selected-tick .row .col a:hover,
             .modal bg-markets .markets .row .col .button:hover,
             .modal bg-markets .markets .row .col a:hover,
             .modal bg-markets .ticks .row .col .button:hover,
@@ -11224,6 +11361,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-markets .underlyings .row .col a:hover,
             .modal bg-ticks .digits .row .col .button:hover,
             .modal bg-ticks .digits .row .col a:hover,
+            .modal bg-ticks .selected-tick .row .col .button:hover,
+            .modal bg-ticks .selected-tick .row .col a:hover,
             .modal bg-ticks .markets .row .col .button:hover,
             .modal bg-ticks .markets .row .col a:hover,
             .modal bg-ticks .ticks .row .col .button:hover,
@@ -11234,6 +11373,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-ticks .underlyings .row .col a:hover,
             .modal bg-tradetypes .digits .row .col .button:hover,
             .modal bg-tradetypes .digits .row .col a:hover,
+            .modal bg-tradetypes .selected-tick .row .col .button:hover,
+            .modal bg-tradetypes .selected-tick .row .col a:hover,
             .modal bg-tradetypes .markets .row .col .button:hover,
             .modal bg-tradetypes .markets .row .col a:hover,
             .modal bg-tradetypes .ticks .row .col .button:hover,
@@ -11244,6 +11385,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-tradetypes .underlyings .row .col a:hover,
             .modal bg-underlyings .digits .row .col .button:hover,
             .modal bg-underlyings .digits .row .col a:hover,
+            .modal bg-underlyings .selected-tick .row .col .button:hover,
+            .modal bg-underlyings .selected-tick .row .col a:hover,
             .modal bg-underlyings .markets .row .col .button:hover,
             .modal bg-underlyings .markets .row .col a:hover,
             .modal bg-underlyings .ticks .row .col .button:hover,
@@ -11496,7 +11639,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   color: #000; }
 
 .transaction-detail .reference {
-  font-size: 1.5rem;
+  font-size: 1rem;
   border-bottom: 2px solid #000;
   padding: 5px 0; }
 
