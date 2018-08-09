@@ -139,6 +139,7 @@
     "date_of_birth": "Date of birth",
     "residence": "Country of residence",
     "place_of_birth": "Place of birth",
+    "nationality": "Nationality",
     "tax_residence": "Tax residence",
     "tax_identification_number": "Tax identification number",
     "address_line_1": "First line of home address",
@@ -207,7 +208,9 @@
     "decline": "Decline",
     "secret_question": "Secret question",
     "secret_answer": "Secret answer",
-    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "confirm_tax_info": "I hereby confirm that the tax information I provided is true and complete. I will also inform Binary Investments (Europe) Ltd. about any changes to this information.",
+    "multi_tax_residence_info": "You may be considered a tax resident in more than one jurisdiction. Please consult your tax advisor and verify that your tax information is accurate."
   },
   "new-account-real": {
     "real_account_opening": "Real Money Account Opening",
@@ -220,6 +223,7 @@
     "date_of_birth": "Date of birth",
     "residence": "Country of residence",
     "place_of_birth": "Place of birth",
+    "nationality": "Nationality",
     "address_line_1": "First line of home address",
     "address_line_2": "Second line of home address",
     "address_city": "Town/City",
@@ -401,6 +405,7 @@
     "tax_residence": "Residencia fiscal",
     "tax_identification_number": "Tax identification number",
     "place_of_birth": "Lugar de nacimiento",
+    "nationality": "Nationality",
     "select": "Por favor, seleccione",
     "general_pattern_error": "Only letters, space, hyphen, period, and apostrophe are allowed.",
     "address_pattern_error": "Only letters, numbers, space, and these special characters are allowed: - . ' # ; : ( ) , @ /",
