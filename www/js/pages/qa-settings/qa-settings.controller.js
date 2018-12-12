@@ -32,6 +32,10 @@
 
             Object.keys(settings).forEach((key) => localStorage.setItem(`config.${key}`, settings[key]));
 
+            delete settings.server_url;
+            settings.wsUrl = vm.wsUrl;
+            localStorage.qaSettings = JSON.stringify(settings);
+
             websocketService.closeConnection();
             $state.go('home');
         }
