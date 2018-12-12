@@ -24,13 +24,13 @@
         vm.saveSettings = function(){
             const settings = {};
             config.wsUrl = vm.wsUrl;
-            settings.wsUrl = vm.wsUrl;
+            settings.server_url = new URL(vm.wsUrl).hostname;
             config.app_id = vm.appId.toString();
             settings.appId = vm.appId.toString();
             config.oauthUrl = vm.oauthUrl;
             settings.oauthUrl = vm.oauthUrl;
 
-            localStorage.qaSettings = JSON.stringify(settings);
+            Object.keys(settings).forEach((key) => localStorage.setItem(`config.${key}`, settings[key]));
 
             websocketService.closeConnection();
             $state.go('home');
