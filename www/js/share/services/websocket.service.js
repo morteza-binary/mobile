@@ -22,7 +22,8 @@ angular
             localStorageService,
             clientService,
             config,
-            notificationService
+            notificationService,
+            supportedLanguagesService
         ) => {
             let dataStream = "";
             const messageBuffer = [];
@@ -118,7 +119,7 @@ angular
 
                 appStateService.isLoggedin = false;
 
-                
+
 
                 const onFailed = () => {
                     $rootScope.$broadcast("connection:error", true);
@@ -194,6 +195,11 @@ angular
 
             const websocketService = {};
             websocketService.authenticate = function(_token, extraParams) {
+                if (_token && _token !== "<not shown>") {
+                    appStateService.authorizeToken = _token;
+                } else {
+                    _token = appStateService.authorizeToken;
+                }
                 extraParams = null || extraParams;
                 appStateService.isLoggedin = false;
 
@@ -216,6 +222,7 @@ angular
                 appStateService.isChangedAccount = false;
                 appStateService.isPopupOpen = false;
                 appStateService.isLoggedin = false;
+                appStateService.authorizeToken = '';
                 sessionStorage.removeItem("start");
                 sessionStorage.removeItem("_interval");
                 sessionStorage.removeItem("realityCheckStart");
@@ -331,6 +338,7 @@ angular
                         buy  : _proposalId,
                         price: price || 0
                     };
+
                     sendMessage(data);
                 },
                 balance() {
@@ -559,6 +567,13 @@ angular
                     };
 
                     sendMessage(data);
+                },
+                serverTime() {
+                    const data = {
+                        time: 1,
+                    };
+
+                    sendMessage(data);
                 }
             };
             websocketService.closeConnection = function() {
@@ -587,6 +602,7 @@ angular
                     switch (messageType) {
                         case "authorize":
                             if (message.authorize) {
+                                message.echo_req.authorize = appStateService.authorizeToken;
                                 message.authorize.token = message.echo_req.authorize;
                                 window._trackJs.userId = message.authorize.loginid;
                                 appStateService.isLoggedin = true;
@@ -640,6 +656,13 @@ angular
                                 appStateService.currenciesConfig = message.website_status.currencies_config;
                                 $rootScope.$broadcast("website_status", message.website_status);
                                 localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
+                                const supportedLanguages = message.website_status.supported_languages;
+                                if (supportedLanguages.length) {
+                                    supportedLanguagesService.setSupportedLanguages(
+                                        message.website_status.supported_languages
+                                    );
+                                    $rootScope.$broadcast("supported_languages");
+                                }
                             } else if (message.hasOwnProperty("error")) {
                                 trackJs.track(`${message.error.code}: ${message.error.message}`);
                             }
@@ -894,6 +917,13 @@ angular
                                 $rootScope.$broadcast("set_account_currency:success", message.echo_req.set_account_currency);
                             } else if (message.error) {
 	                            $rootScope.$broadcast("set_account_currency:error", message.error);
+                            }
+                            break;
+                        case "time": 
+                            if (message.time) {
+                                $rootScope.$broadcast("time:success", message.time);
+                            } else if (message.error) {
+                                $rootScope.$broadcast("time:error", message.error);
                             }
                             break;
                         default:

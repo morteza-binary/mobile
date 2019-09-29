@@ -110,7 +110,7 @@ angular.module("binary").factory("chartService", $rootScope => {
         },
         average: function average(list) {
             const decimalPointLength = utils.fractionalLength(list[0]) + 1;
-            return parseFloat(list.reduce((a, b) => a + b, 0) / list.length).toFixed(decimalPointLength);
+            return parseFloat(list.reduce((a, b) => (+a) + (+b), 0) / list.length).toFixed(decimalPointLength);
         },
         conditions: {
             CALL: function condition(barrier, price) {
@@ -128,10 +128,10 @@ angular.module("binary").factory("chartService", $rootScope => {
                 return parseFloat(price) < parseFloat(barrier);
             },
             DIGITMATCH: function condition(barrier, price) {
-                return utils.lastDigit(barrier) === utils.lastDigit(price);
+                return utils.lastDigit(parseInt(barrier)) === utils.lastDigit(price);
             },
             DIGITDIFF: function condition(barrier, price) {
-                return utils.lastDigit(barrier) !== utils.lastDigit(price);
+                return utils.lastDigit(parseInt(barrier)) !== utils.lastDigit(price);
             },
             DIGITEVEN: function condition(barrier, price) {
                 return utils.lastDigit(price) % 2 === 0;
@@ -254,10 +254,13 @@ angular.module("binary").factory("chartService", $rootScope => {
         let historyData = [];
 
         const addTick = function addTick(tick) {
+            const options = JSON.parse(localStorage.options);
+            const pip = options.underlying.pip;
+            const fractionalLength = utils.fractionalLength(pip);
             if (parseInt(tick.epoch) > parseInt(historyData.slice(-1)[0].time)) {
                 historyData.push({
                     time : tick.epoch,
-                    price: tick.quote
+                    price: parseFloat(tick.quote).toFixed(fractionalLength)
                 });
                 historyData.shift();
             }
@@ -448,7 +451,8 @@ angular.module("binary").factory("chartService", $rootScope => {
                     if (utils.higherLowerTrade(contract)) {
                         contract.offset = contract.offset || contract.barrier;
                         barrier = Number(tickPrice) + Number(contract.offset);
-                        barrier = barrier.toFixed(utils.fractionalLength(tickPrice));
+                        barrier = utils.digitTrade(contract) ?
+                            contract.barrier : barrier.toFixed(utils.fractionalLength(tickPrice));
                     }
                     utils.setObjValue(contract, "barrier", barrier, !utils.digitTrade(contract));
                     utils.setObjValue(contract, "entrySpotPrice", tickPrice, true);
@@ -500,33 +504,44 @@ angular.module("binary").factory("chartService", $rootScope => {
         };
 
         const addRegions = function addRegions(lastTime, lastPrice) {
+            const options = JSON.parse(localStorage.options);
+            const pip = options.underlying.pip;
+            const fractionalLength = utils.fractionalLength(pip);
+
             if (hasEntrySpot() && broadcastable) {
                 if (tickPriceList.length === 0) {
                     if (contract.entrySpotTime !== lastTime && betweenExistingSpots(lastTime)) {
-                        tickPriceList.push(parseFloat(contract.entrySpotPrice));
-                        if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice,
+                        const entrySpotPrice = parseFloat(contract.entrySpotPrice).toFixed(fractionalLength);
+                        const barrier = utils.digitTrade(contract) ?
+                            contract.barrier : parseFloat(contract.barrier).toFixed(fractionalLength);
+                        tickPriceList.push(entrySpotPrice);
+
+                        if (utils.conditions[contract.type](barrier, entrySpotPrice,
                             tickPriceList, contract.selectedTick)) {
                             contract.result = "win";
                         } else {
                             contract.result = "lose";
                         }
-                        $rootScope.$broadcast("contract:spot", contract, contract.entrySpotPrice);
+                        $rootScope.$broadcast("contract:spot", contract, entrySpotPrice);
                     } else {
-                        tickPriceList.push(parseFloat(lastPrice));
+                        tickPriceList.push(parseFloat(lastPrice).toFixed(fractionalLength));
                     }
                 } else {
-                    tickPriceList.push(parseFloat(lastPrice));
+                    tickPriceList.push(parseFloat(lastPrice).toFixed(fractionalLength));
                 }
 
                 if (betweenExistingSpots(lastTime)) {
-                    if (utils.conditions[contract.type](contract.barrier, lastPrice,
+                    const barrier = parseFloat(contract.barrier).toFixed(fractionalLength);
+                    const lastPriceFloat = parseFloat(lastPrice).toFixed(fractionalLength);
+
+                    if (utils.conditions[contract.type](barrier, lastPriceFloat,
                         tickPriceList, contract.selectedTick)) {
                         contract.result = "win";
                     } else {
                         contract.result = "lose";
                     }
 
-                    $rootScope.$broadcast("contract:spot", contract, lastPrice);
+                    $rootScope.$broadcast("contract:spot", contract, lastPriceFloat);
 
                     if (isFinished() && broadcastable) {
                         tickPriceList = [];
