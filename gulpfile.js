@@ -221,7 +221,7 @@ gulp.task('modify-index', (done) => {
             },
             replacecordovabysw: "js/service-worker-registration.js",
             addbase           : {
-                src: '/',
+                src: '/mobile/',
                 tpl: '<base href="%s">'
             },
         }
